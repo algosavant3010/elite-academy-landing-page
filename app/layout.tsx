@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { Oswald, Inter } from "next/font/google"
 import SmoothScroll from "@/components/smooth-scroll"
-import Preloader from "@/components/preloader"
 import "./globals.css"
 
 const oswald = Oswald({
@@ -125,7 +124,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased ${oswald.variable} ${inter.variable}`}>
-        <Preloader />
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
       </body>
