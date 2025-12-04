@@ -1,0 +1,185 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* New racing academy color scheme - bold, high-contrast, professional */
+:root {
+  /* Primary brand colors */
+  --academy-dark: #0f0f0f;
+  --academy-accent: #ff3d3d;
+  --academy-secondary: #ffd700;
+  --academy-light: #f5f5f5;
+
+  /* Semantic tokens */
+  --background: #0f0f0f;
+  --foreground: #f5f5f5;
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+  --primary: #ff3d3d;
+  --primary-foreground: #f5f5f5;
+  --secondary: #ffd700;
+  --secondary-foreground: #0f0f0f;
+  --muted: #666666;
+  --muted-foreground: #999999;
+  --accent: #ff3d3d;
+  --accent-foreground: #f5f5f5;
+  --destructive: #d32f2f;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #ff3d3d;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #f5f5f5;
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+  --primary: #ff3d3d;
+  --primary-foreground: #f5f5f5;
+  --secondary: #ffd700;
+  --secondary-foreground: #0f0f0f;
+  --muted: #666666;
+  --muted-foreground: #999999;
+  --accent: #ff3d3d;
+  --accent-foreground: #f5f5f5;
+  --destructive: #d32f2f;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #ff3d3d;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-oswald: var(--font-oswald);
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+  --color-academy-dark: #0f0f0f;
+  --color-academy-accent: #ff3d3d;
+  --color-academy-secondary: #ffd700;
+  --color-academy-light: #f5f5f5;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Removendo overflow-x: hidden para permitir scroll horizontal controlado na masonry */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Removendo overflow-x: hidden para permitir scroll horizontal controlado na masonry */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-oswald uppercase tracking-wider font-bold;
+    letter-spacing: 0.08em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Disable animations for users who prefer reduced motion */
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Custom animations for enhanced effects */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s ease;
+  }
+
+  /* Added glow effect for CTA buttons */
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(255, 61, 61, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-accent:hover {
+    box-shadow: 0 0 30px rgba(255, 61, 61, 0.8);
+  }
+}
+
+.simteste {
+  color: #c8f550;
+  font-size: 1050px;
+  line-height: 600px;
+}
